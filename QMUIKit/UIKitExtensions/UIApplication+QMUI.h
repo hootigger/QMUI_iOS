@@ -26,6 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, readonly) __kindof UIWindow *qmui_keyWindow;
 @property (nullable, nonatomic, readonly) __kindof UIWindow *qmui_delegateWindow;
 
+/// 当前窗口 Scene 的布局信息；不使用 UIApplication 的旧状态栏接口。
+@property(nonatomic, readonly) UIInterfaceOrientation qmui_interfaceOrientation;
+@property(nonatomic, readonly) CGFloat qmui_statusBarHeight;
+@property(nonatomic, readonly) BOOL qmui_statusBarHidden;
+
 @end
 
 NS_ASSUME_NONNULL_END

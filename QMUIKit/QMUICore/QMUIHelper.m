@@ -983,7 +983,7 @@ static CGFloat preferredLayoutWidth = -1;
     }
     
     NSNumber *orientationKey = nil;
-    UIInterfaceOrientation orientation = UIApplication.sharedApplication.statusBarOrientation;
+    UIInterfaceOrientation orientation = UIApplication.sharedApplication.qmui_interfaceOrientation;
     switch (orientation) {
         case UIInterfaceOrientationLandscapeLeft:
         case UIInterfaceOrientationLandscapeRight:
@@ -1075,8 +1075,8 @@ static NSInteger isHighPerformanceDevice = -1;
 + (CGFloat)statusBarHeightConstant {
     NSString *deviceModel = [QMUIHelper deviceModel];
     
-    if (!UIApplication.sharedApplication.statusBarHidden) {
-        return UIApplication.sharedApplication.statusBarFrame.size.height;
+    if (!UIApplication.sharedApplication.qmui_statusBarHidden) {
+        return UIApplication.sharedApplication.qmui_statusBarHeight;
     }
     
     if (IS_IPAD) {

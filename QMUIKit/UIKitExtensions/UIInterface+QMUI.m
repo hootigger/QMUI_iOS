@@ -110,7 +110,7 @@ QMUISynthesizeNSIntegerProperty(lastOrientationChangedByHelper, setLastOrientati
 }
 
 + (CGAffineTransform)transformForCurrentInterfaceOrientation {
-    return [QMUIHelper transformWithInterfaceOrientation:UIApplication.sharedApplication.statusBarOrientation];
+    return [QMUIHelper transformWithInterfaceOrientation:UIApplication.sharedApplication.qmui_interfaceOrientation];
 }
 
 + (CGAffineTransform)transformWithInterfaceOrientation:(UIInterfaceOrientation)orientation {
@@ -152,7 +152,7 @@ QMUISynthesizeNSIntegerProperty(lastOrientationChangedByHelper, setLastOrientati
                 }
                 
                 
-                UIInterfaceOrientation statusBarOrientation = UIApplication.sharedApplication.statusBarOrientation;
+                UIInterfaceOrientation statusBarOrientation = UIApplication.sharedApplication.qmui_interfaceOrientation;
                 UIDeviceOrientation lastOrientationChangedByHelper = [QMUIHelper sharedInstance].lastOrientationChangedByHelper;
                 BOOL shouldConsiderLastChanged = lastOrientationChangedByHelper != UIDeviceOrientationUnknown;
                 UIDeviceOrientation deviceOrientation = [UIDevice currentDevice].orientation;

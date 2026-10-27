@@ -107,5 +107,23 @@ QMUISynthesizeBOOLProperty(qmui_didFinishLaunching, setQmui_didFinishLaunching)
     return delegateWindow;
 }
 
+- (UIInterfaceOrientation)qmui_interfaceOrientation {
+    UIWindowScene *scene = self.qmui_keyWindow.windowScene ?: self.qmui_delegateWindow.windowScene;
+    if (@available(iOS 16.0, *)) {
+        return scene.effectiveGeometry.interfaceOrientation;
+    }
+    return scene.interfaceOrientation;
+}
+
+- (CGFloat)qmui_statusBarHeight {
+    UIWindowScene *scene = self.qmui_keyWindow.windowScene ?: self.qmui_delegateWindow.windowScene;
+    return scene.statusBarManager.statusBarFrame.size.height;
+}
+
+- (BOOL)qmui_statusBarHidden {
+    UIWindowScene *scene = self.qmui_keyWindow.windowScene ?: self.qmui_delegateWindow.windowScene;
+    return scene.statusBarManager ? scene.statusBarManager.statusBarHidden : YES;
+}
+
 @end
 
