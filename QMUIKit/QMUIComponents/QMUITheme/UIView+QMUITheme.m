@@ -204,7 +204,8 @@ QMUISynthesizeIdCopyProperty(qmui_themeDidChangeBlock, setQmui_themeDidChangeBlo
         
         if (@available(iOS 16.0, *)) {
             UITextField *textField = (UITextField *)self;
-            NSTextContainer *textContainer = [textField qmui_valueForKey:@"textContainer"];
+            // Flutter 密码输入视图会伪装成 UITextField，但不一定支持其私有 KVC 属性。
+            NSTextContainer *textContainer = [textField qmui_canGetValueForKey:@"textContainer"] ? [textField qmui_valueForKey:@"textContainer"] : nil;
             if ([textContainer isKindOfClass:NSTextContainer.class]) {
                 NSTextRange *textRange = textContainer.textLayoutManager.textContentManager.documentRange;
                 if (textRange) {
